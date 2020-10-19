@@ -50,7 +50,7 @@ var cookie = {
 
      */
     set : function( name, value, day, domain, usehost ) {
-        day = day || 365, domain = domain || '.fun.tv', usehost = usehost || 0;
+        day = day || 365, domain = domain || location.host, usehost = usehost || 1;
         var expires = new Date();
         expires.setTime( (new Date()).getTime() + 3600 * 24 * 1000 * day );
         document.cookie = name + '=' + escape( value ) + '; path=/; ' + (usehost ? 'host' : 'domain') + '=' + domain + (day == -1 ? '' : ';expires=' + expires.toGMTString());

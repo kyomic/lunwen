@@ -24,6 +24,7 @@ var api = {}
 var Config = {
     API:"/api/"
 };
+Config.api = 'http://localhost:3002/api';
 api._post = function( obj, onsuccess, onfail ){
     var params = {};
     onsuccess = onsuccess || function(){};
@@ -80,8 +81,9 @@ api._post = function( obj, onsuccess, onfail ){
     });
 };
 
-api.login = function( param ){
-
+api.login = function( param, onsuccess, onfail ){
+	param.api = Config.api + "/web/user/login"
+	this._post(param, onsuccess, onfail)
 }
 
 fxui.fxlib = fxlib;

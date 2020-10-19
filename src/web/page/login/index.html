@@ -27,12 +27,12 @@
 	$(".submit").on('click',function(e){
 		var n = $('input[name=user]').val();
 		var p = $('input[name=pass]').val();
-
 		var api = $.fn.fxui.api.login({
-			user:p,pass:p
+			params:{user:n,pass:p}			
 		},function(data){
 			if( data.status == 200 ){
-				cookie.set('user', JSON.parse(data.data));
+				cookie.set('user', JSON.stringify(data.data));
+				location.href = '/web/page/index';
 			}else{
 				alert('登录异常，请检测您的帐号')
 			}

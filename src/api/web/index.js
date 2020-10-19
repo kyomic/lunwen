@@ -21,13 +21,34 @@ let api = {
     // 支持值为 Object 和 Array
     'GET /api/user/list': (req, res) =>{
         res.send({
-            status:'ok', data:basicData
+            status:200, data:basicData
         })
     },
     'GET /api/web/book/suggest':(req,res)=>{
         res.send({
             status:'200', data:books
         })
+    },
+    'POST /api/web/user/login':(req,res)=>{
+        let body = null;
+        try{
+            body = req.body;
+        }catch(e){}
+        if( body){
+            if( body.user =='admin' && body.pass =='admin'){
+                res.send({
+                    status: 200,
+                    data:{
+                        user_id:111,token:'abc',level:0,nick_name:'坤坤'
+                    }
+                });
+                return;
+            }
+        }
+        res.send({
+            status: 400,
+            data:null
+        });
     }
 }
 
