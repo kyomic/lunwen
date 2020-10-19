@@ -1,0 +1,158 @@
+body, div, dl, dt, dd, ul, ol, li,
+h1, h2, h3, h4, h5, h6, pre, code,
+form, fieldset, legend, input, button,
+textarea, p, blockquote, th, td {
+    margin: 0;
+    padding: 0;
+}
+fieldset,img{
+	border:0 none
+}
+:focus{
+	outline:none
+}
+h1,h2,h3,h4,h5,h6{
+	font-size:100%;
+	font-weight:400;
+}
+a,input{
+	outline:none
+}
+input,textarea{
+	font-family:tahoma,'宋体';
+	font-size:12px;
+    /* 重置Safari按钮圆角样式 */
+}
+blockquote,q{
+	quotes: none;
+}
+ol,ul{
+	list-style:none;
+}
+:link,:visited,ins{
+	text-decoration:none;
+}
+area,area:active{
+	border:0 none;
+	outline:none;
+}
+blockquote:before,blockquote:after,q:before,q:after{
+	content:'';
+}
+
+/* table上还需要设置 cellspacing="0" */
+table{
+	border-collapse:collapse;
+	border-spacing:0;
+}
+caption,th{
+	text-align:left;
+}
+
+/* textarea设置css3属性，用户可自己调整高度 */
+textarea{
+	overflow:auto;
+	resize:vertical;
+}
+
+/* 背景颜色设置为白色 */
+html{
+	/*overflow-x: hidden;*/
+}
+
+body{
+	text-align:left;
+	color:#333;
+	font-family: 'PingFang SC','Microsoft YaHei','微软雅黑','Helvetica',Arial,'宋体','helvetica neue','hiragino sans gb','Lucida Grande',sans-serif;
+	font-size:16px;
+	font-size-adjust:none;
+	font-stretch:normal;
+	font-style:normal;
+	font-variant:normal;
+	font-weight:400;
+	line-height:1;
+	min-width: 600px;
+	background:#FFF;
+	-webkit-font-smoothing: subpixel-antialiased; 
+}
+
+
+/* 清除浮动用的class,一般用 <div class="clear">&nbsp;</div> */
+.clear,.clear-all{
+	clear:both;
+	font-size:0;
+	height:0;
+	line-height:0;
+	overflow:hidden;
+}
+
+/* 清除浮动 */
+.fix:after,.clearfix:after{
+	clear:both;
+	content:" ";
+	display:block;
+	font-size:0;
+	height:0;
+	visibility:hidden;
+}
+.fix, .clearfix{
+	*zoom:1;
+}
+
+/* 解决ff下input中文字不居中问题 */
+input[type="reset"]::-moz-focus-inner,
+input[type="button"]::-moz-focus-inner,
+input[type="submit"]::-moz-focus-inner,
+input[type="file"] > input[type="button"]::-moz-focus-inner{
+	border:none;
+	padding:0;
+}
+
+a{
+	color:#333;
+	text-decoration:none;
+}
+a:visited{
+	color:#333;
+	_color:inherit;
+	outline:none;
+}
+a:hover{
+	color: #00CC00;
+}
+a:active{
+	outline:none;
+}
+
+/*
+ * 在class为underline下的所有a标签均为默认有下划线
+ * 在class为underlineHover下的所有a标签hover效果均有下划线
+ * class为underline的a标签默认有下划线
+ * class为underlineHover的a标签hover效果带有下划线
+ */
+.underline a,
+.underline-hover a:hover,
+a.underline,
+a.underline-hover:hover{
+	text-decoration:underline;
+}
+/*
+    去掉IE11、10 input的X按钮
+*/
+input[type="text"]::-ms-clear,
+input[type="text"]::-ms-reveal{
+    display: none;
+    width:0;
+    height:0;
+    overflow: hidden;
+    visibility: hidden;
+}
+/* 用到display:none;隐藏元素的时候均使用class替换 */
+.hidden{
+	display:none;
+}
+
+/* 重置一些常用的标签样式 */
+i, b, em, small,strong{
+	display: inline-block;
+}

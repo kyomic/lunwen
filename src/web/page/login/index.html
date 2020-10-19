@@ -1,0 +1,44 @@
+<link rel="import" href="/web/common/header.html?__inline">
+<link rel="import" href="/web/common/menu.html?__inline">
+<link rel="stylesheet" type="text/css" href="./index.less">
+<div class="page-wrap">
+	<div class="login-wrap">
+		
+		<div class="section form form-oneline" data-mock="indexData">
+			<h3>欢迎登录坤坤图书管理系统</h3>
+			<div class="form-item">
+				<label>用户名：</label>
+				<input type="text" name="user" />
+			</div>
+			<div class="form-item">
+				<label>密码：</label>
+				<input type="password" name="pass" />
+			</div>
+			<div class="form-item">
+				<input type='button' class="submit" value="登录" />
+				<input type='button' class="cancel" value="返回" />
+			</div>
+		</div>
+	</div>
+</div>
+
+<link rel="import" href="/web/common/footer.html?__inline">
+<script type="text/javascript">
+	$(".submit").on('click',function(e){
+		var n = $('input[name=user]').val();
+		var p = $('input[name=pass]').val();
+
+		var api = $.fn.fxui.api.login({
+			user:p,pass:p
+		},function(data){
+			if( data.status == 200 ){
+				cookie.set('user', JSON.parse(data.data));
+			}else{
+				alert('登录异常，请检测您的帐号')
+			}
+			if( data.level == 0 ){
+				//admin
+			}
+		})
+	})
+</script>
