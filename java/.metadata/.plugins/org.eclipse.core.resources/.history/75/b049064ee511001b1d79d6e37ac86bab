@@ -1,0 +1,56 @@
+package dao;
+
+import utils.DBUtil;
+import model.Book;
+
+public class BookDao {
+	/** 添加图书信息
+	 * 
+	 * @param book
+	 * @throws Exception
+	 */
+	public void addBook( Book book ) throws Exception{
+		// 首先拿到数据库的连接
+        Connection con = DBUtil.getConnection();
+        String sql="insert into tb_books"
+        		// ISBN、书名、图书价格、图书作者、出版社
+        		+ "(ISBN, book_name, book_price, book_author, published_house,"
+        		// 分类号、借书人姓名、借书人电话、借书日期，已借天数
+        		+ "book_category, borrower_name, borrower_phone) "
+        		+ "values("
+        		/*
+        		 * 参数用?表示，相当于占位符，然后在对参数进行赋值。当真正执行时，
+        		 * 这些参数会加载在SQL语句中，把SQL语句拼接完整才去执行。这样就会减少对数据库的操作
+        		 */
+        		+ "?,?,?,?,?,?,?,?)";
+        /*
+         * prepareStatement这个方法会将SQL语句加载到驱动程序conn集成程序中，
+         * 但是并不直接执行,而是当它调用execute()方法的时候才真正执行；
+         */
+        PreparedStatement psmt = con.prepareStatement(sql);
+        // 先对应SQL语句，给SQL语句传递参数
+        psmt.setString(1, book.getISBN());
+        psmt.setString(2, book.getBookName());
+        psmt.setFloat(3, book.getPrice());
+        psmt.setString(4, book.getAuthor());
+        psmt.setString(5, book.getPublishHouse());
+        psmt.setString(6, book.getBookCategory());
+        
+        if (book.getBorrowerName() == null || book.getBorrowerName() == "") {
+        	psmt.setString(7, null);
+        }
+        else {
+        	  psmt.setString(7, book.getBorrowerName());
+        }
+      
+        if (book.getBorrowerPhone() == null || book.getBorrowerPhone() == "") {
+        	 psmt.setString(8, null);  
+        }
+        else {
+        	psmt.setString(8, book.getBorrowerPhone());  
+        }
+        
+        //执行SQL语句
+        psmt.execute();
+	}
+}

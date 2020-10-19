@@ -1,0 +1,16 @@
+package model;
+
+public class Book {
+	private int ID;
+	private String isbn;
+	// 图书名称
+	private String name;
+	// 图书价格
+	private float price;
+	// 图书作者
+	private String author;
+	// 出版社
+	private String publisher;
+	// 图书分类号
+	private String type;
+}

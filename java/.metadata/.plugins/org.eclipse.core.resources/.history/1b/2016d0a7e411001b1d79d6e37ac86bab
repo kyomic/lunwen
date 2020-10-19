@@ -1,0 +1,9 @@
+package dao;
+
+import model.Book;
+
+public class BookDao {
+	public addBook( Book book ) throws Exception{
+		
+	}
+}

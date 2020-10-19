@@ -1,0 +1,14 @@
+package dao;
+
+import model.Book;
+
+public class BookDao {
+	/** 添加图书信息
+	 * 
+	 * @param book
+	 * @throws Exception
+	 */
+	public void addBook( Book book ) throws Exception{
+		
+	}
+}

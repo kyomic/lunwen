@@ -1,0 +1,29 @@
+package model;
+
+public class Book {
+	private int ID;
+	private String isbn;
+	// 图书名称
+	private String name;
+	// 图书价格
+	private float price;
+	// 图书作者
+	private String author;
+	// 出版社
+	private String publisher;
+	// 图书分类号
+	private String type;
+	// 图书介绍
+	private String intro;
+	// 图书发版日期
+	private String publishdate;
+	// 图书图片信息
+	private String pic; 
+	/**
+	 * 获取图书名称
+	 */
+	public String getBookName() {
+		return this.name;
+	}
+}
+

@@ -1,0 +1,126 @@
+package dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+import utils.DBUtil;
+import model.Book;
+
+public class BookDao {
+	/** 添加图书信息
+	 * 
+	 * @param book
+	 * @throws Exception
+	 */
+	public void addBook( Book book ) throws Exception{
+		// 首先拿到数据库的连接
+        Connection con = DBUtil.getConnection();
+        String sql="insert into tb_books"
+        		// isbn、书名、图书价格、图书作者、出版社
+        		+ "(BOOK_isbn, BOOK_name, BOOK_price, BOOK_author, BOOK_publisher,"
+        		+ "BOOK_type, BOOK_pic, BOOK_intro) "
+        		+ "values("
+        		+ "?,?,?,?,?,?,?,?)";       
+        PreparedStatement psmt = con.prepareStatement(sql);
+        // 先对应SQL语句，给SQL语句传递参数
+        psmt.setString(1, book.isbn);
+        psmt.setString(2, book.getBookName());
+        psmt.setFloat(3, book.price);
+        psmt.setString(4, book.author);
+        psmt.setString(5, book.publisher);
+        psmt.setString(6, book.type);       
+        //执行SQL语句
+        psmt.execute();
+	}
+	
+	/**
+     * 删除图书信息(设置删除标记)
+     */
+      public void removeBook(int ID) throws SQLException{
+    	// 首先拿到数据库的连接
+          Connection con=DBUtil.getConnection();
+          String sql="update tb_books "
+          		+ "set BOOK_Book_isdeleted = ?"
+          		+ "where ID = ?";
+          // 预编译sql语句
+          PreparedStatement psmt = con.prepareStatement(sql);
+          // 先对应SQL语句，给SQL语句传递参数
+          psmt.setInt(1, 1);
+          psmt.setInt(9, ID);
+          // 执行SQL语句
+          psmt.execute();    
+      }
+      /**
+       * 硬删除图书
+       * @param ID
+       */
+      public void removeFromDB(int ID){
+          Connection con= DBUtil.getConnection();
+          String sql="" + 
+                  "DELETE FROM tb_books "+   
+                  "WHERE ID = ?";
+          PreparedStatement psmt = con.prepareStatement(sql);
+          psmt.setInt(1, ID);
+          psmt.execute();    
+      }
+	    
+ 
+	/**
+	 * 更新图书信息
+	 */
+    public void update(Book book) throws SQLException{
+    	// 首先拿到数据库的连接
+        Connection con=DBUtil.getConnection();
+        String sql="update tb_books "
+        		+ "set BOOK_isbn = ?, BOOK_name = ?, BOOK_price = ?, BOOK_author = ?"
+                + ",BOOK_publisher = ?, BOOK_type = ?, BOOK_intro = ?"
+        		+ "where ID = ?";
+        // 预编译sql语句
+        PreparedStatement psmt = con.prepareStatement(sql);
+        // 先对应SQL语句，给SQL语句传递参数
+        psmt.setString(1, book.isbn);
+        psmt.setString(2, book.getBookName());
+        psmt.setFloat(3, book.price);
+        psmt.setString(4, book.author);
+        psmt.setString(5, book.publisher);
+        psmt.setString(6, book.type);
+        psmt.setString(7, book.intro);
+        psmt.setInt(9, book.ID);
+        // 执行SQL语句
+        psmt.execute();    
+    }
+ 
+	        
+ 
+	/**
+	 * 查询书籍信息
+	 */
+	public List<Book> query() throws Exception{	       
+		Connection con = DBUtil.getConnection();	        
+		Statement stmt = con.createStatement();	       
+		ResultSet rs = stmt.executeQuery("select "
+				// ISBN、书名、作者、图书价格、出版社
+				+ "ID, ISBN, book_name, book_author, book_price, published_house, "
+				// 分类号、借书人姓名、借书人电话
+				+ "book_category, borrower_name, borrower_phone "
+				+ "from tb_books");	      
+		List<Book> bookList = new ArrayList<Book>();	       
+		Book book = null;	   
+		// 如果对象中有数据，就会循环打印出来
+		while (rs.next()){	           
+			book = new Book();	     
+			book.setID(rs.getInt("ID"));
+			book.setISBN(rs.getString("ISBN"));
+			book.setBookName(rs.getString("book_name"));	       
+			book.setAuthor(rs.getString("book_author"));
+			book.setPrice(rs.getFloat("book_price"));
+			book.setPublishHouse(rs.getString("published_house"));
+			book.setBookCategory(rs.getString("book_category"));
+			book.setBorrowerName(rs.getString("borrower_name"));
+			book.setBorrowerPhone(rs.getString("borrower_phone"));
+			bookList.add(book);	        
+		}	       
+		return bookList;	  
+
+}
