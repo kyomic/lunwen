@@ -1,3 +1,31 @@
 .section .checkbox-inline{
 	display: none;
 }
+.search{
+	float: right;
+}
+.order-item{
+	font-size: 12px;
+	padding: 5px;border: 1px solid #ccc;
+	line-height: 18px;
+	margin-bottom: 10px;
+	.order{
+		font-size: 14px;
+		.tit{
+			font-weight: bold;
+			color: #3192af;
+		}
+	}
+	.item img{
+		float: left;
+		width:100px;
+	}
+	.item:after{
+		clear:both;
+		content:" ";
+		display:block;
+		font-size:0;
+		height:0;
+		visibility:hidden;
+	}
+}
