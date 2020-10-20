@@ -16,4 +16,15 @@ $(document).ready(function(){
 		$(".unlogin").show();
 		$(".logined").hide();
 	}
+	var name = /\/web\/page\/([^\/]+)/i.exec(location.href)
+	if( name ){
+		name = name[1]
+	}else{
+		name = 'index'
+	}
+	var current = $(".menu-" + name );
+	console.log('current', current)
+	if( current && current.length){
+		current.addClass('current')
+	}
 });

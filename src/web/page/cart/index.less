@@ -8,3 +8,28 @@
 	content:'';
 	clear:both;
 }
+
+.books{
+	.pic img{
+		width:100px;
+		float: left;
+	}
+	.item{
+		font-size: 12px;
+		line-height: 20px;
+		.buy{
+			display: none;
+		}
+	}
+	.item:after{
+		clear:both;
+		content:" ";
+		display:block;
+		font-size:0;
+		height:0;
+		visibility:hidden;
+	}
+}
+.books .item:nth-child(n+3){
+	display: none;
+}

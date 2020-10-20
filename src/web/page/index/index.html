@@ -1,7 +1,39 @@
 <link rel="import" href="/web/common/header.html?__inline">
 <link rel="import" href="/web/common/menu.html?__inline">
+<link rel="stylesheet" href="./index.less">
 <div class="page-wrap">
+	<div class="section">
+		<span class="breadcrumbs">位置：首页 </span>
+		<div class="search">
+			<form class="form">
+				<input type="text" name="" placeholder="请输入书名" />
+				<input type="button" value="搜索" />
+			</form>
+		</div>
+	</div>
+	
+</div>
+<div class="page-wrap">
+	<div class="section section-lr">
+		<div class="left">
+			<h3 class="tit-h3">推荐图书</h3>
+			<link rel="import" href="/web/common/tpl/books.html?__inline">
+		</div>
+		<div class="right">
+			<h3 class="tit-h3">新书入库</h3>
+			<div class="top">
+				<link rel="import" href="/web/common/tpl/books.html?__inline">
+			</div>
+			<h3 class="tit-h3">销售排行</h3>
+			<div class="number">
+				<link rel="import" href="/web/common/tpl/books.html?__inline">
+			</div>
+			
+		</div>
+	</div>
+	
 	<div class="section" data-mock="indexData">
+
 		<script type="text/html">
 			<% each data %>
 			<% /each>
