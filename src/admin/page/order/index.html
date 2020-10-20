@@ -1,0 +1,126 @@
+<link rel="import" href="/admin/common/header.html?__inline">
+<div class="container admin-container">
+	<div class="menu">
+		<link rel="import" href="/admin/common/left_menu.html?__inline">
+	</div>
+	<div class="main">
+		<div class="dialog" style="display:none">
+			<div class="d-header"></div>
+			<div class="d-content">
+				<form class="form">					
+					<div class="form-item">
+						<label >备注</label>
+						<textarea name="desc"></textarea>
+						
+					</div>
+				</form>
+			</div>
+			<div class="d-footer">
+				<input type="button" class="submit" value="确定" />
+				<input type="button" class="cancel" value="取消" />
+			</div>
+		</div>
+		<div class="table-header">
+			<div class="search">
+				<form class="form form-inline">
+					<div class="form-item">
+						<input type="text" name="name" placeholder="请输入订单号" />
+					</div>
+					<div class="form-item">
+						<input type="text" name="name" placeholder="联系人" />
+					</div>
+					<div class="form-item">
+						<input type="text" name="name" placeholder="联系电话" />
+					</div>
+					<div class="form-item">
+						下单时间：从<input type="text" name="isbn" placeholder="2020-10-20" class="time" />
+						到<input type="text" name="isbn" placeholder="2020-10-25"  class="time" />
+					</div>
+					<div class="form-item">
+						订单状态
+						<select>
+							<option>请选择</option>
+							<option>已经发货</option>
+							<option>待处理</option>
+							<option>已拒绝</option>
+						</select>
+					</div>
+					<div class="form-item">
+						<input type="button" value="搜索" />
+					</div>
+				</form>
+			</div>
+			
+		</div>
+		<table>
+			<thead>
+				<tr>
+					<td>
+						序号
+					</td>
+					<td>
+						订单号
+					</td>
+					<td>
+						下单时间
+					</td>
+					<td>
+						总价
+					</td>
+					<td>
+						联系人
+					</td>
+					<td>
+						电话
+					</td>
+					<td>
+						联系地址
+					</td>
+					<td>
+						状态
+					</td>
+					<td>
+						操作
+					</td>
+				</tr>
+			</theader>
+			<tbody>
+				<tr>
+					<td>
+						序号
+					</td>
+					<td>
+						缩略图
+					</td>
+					<td>
+						书名
+					</td>
+					<td>
+						作者
+					</td>
+					<td>
+						出版社
+					</td>
+					<td>
+						2020-10-20 15:33:40
+					</td>
+					<td>
+						2020-10-20 15:33:40
+					</td>
+					<td>
+						
+					</td>
+					<td>
+						<button class="publish">发货</button>
+						<button class="view">详情</button>
+						<button class="modify" data-title="拒绝订单原因">拒绝</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<link rel="import" href="/web/common/tpl/pager.html?__inline">
+		
+	</div>
+</div>
+
+<link rel="import" href="/admin/common/footer.html?__inline">

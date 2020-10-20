@@ -4,6 +4,9 @@
 	border-right: 1px solid #ccc;
 	border-left: 1px solid #ccc;
 }
+.section{
+	padding: 10px;
+}
 .form{	
 	.form-item{
 		padding: 3px;
@@ -30,9 +33,58 @@
 			background-color: #EEE;
 		}
 	}
+	input[type=file]{
+		border:none;
+	}
+	input.time{
+		width: 100px;
+	}
+	select{
+		line-height: 25px;
+		height: 25px;
+	}
+	input[type=text]{
+		text-indent: 10px;
+	}
 	textarea{
 		width: 100%;
 		min-height: 100px;
+	}
+}
+.form-inline{
+	.form-item{
+		display: inline-block;
+	}
+}
+.dialog{
+	border:1px solid #CCC;
+	border-radius: 10px;
+	display: inline-block;
+	box-shadow: 1px 1px 18px rgba(0,0,0,0.1);
+	min-width: 300px;
+	position: absolute;left: 0;top: 0;
+	background: white;
+	z-index: 1;
+	.d-header{
+		padding: 10px;
+		font-weight: bold;
+		font-size: 14px;
+	}
+	.d-content{
+		padding: 5px 10px;
+		padding-bottom: 20px;
+	}
+	.d-footer{
+		text-align: center;
+		border-top: 1px solid #ccc;
+		padding:10px 10px; 
+		input{
+			border-radius: 3px;
+			padding:5px;
+			background:#EEE;
+			border:1px solid #CCC;
+			cursor: pointer;
+		}
 	}
 }
 .price{
@@ -57,4 +109,71 @@
 		min-width: 20px;
 		text-align: center;
 	}
+}
+
+/** admin **/
+.admin{
+	.container{
+		margin-top: 10px;
+	}
+	.pager{
+		padding-top: 0px;
+		padding-bottom: 10px;
+	}
+	.left-menu{
+		li{
+			margin: 20px;
+		}
+	}
+	.table-header{
+		position: relative;
+		padding-right:200px;
+		.tools{
+			position: absolute;
+			right: 0;
+			bottom: 0px;
+		}
+		.search{
+
+		}
+	}
+	table{
+		width: 100%;
+		margin-top: 10px;
+		margin-bottom: 10px;
+	}
+	table thead td{
+		height: 40px;
+		line-height: 40px;
+		color: #777;
+		font-weight: bold;
+		background-color: #F0F0F0;
+	}
+	table td{
+		border:1px solid #E1E1E1;
+		text-align: center;
+		height: 40px;
+		line-height: 40px;
+		word-wrap: break-word;
+	    word-break: break-all;
+	}
+	.tools > button{
+		padding: 5px;
+		display: inline-block;
+		background: #ccc;
+		border: 1px solid #333;
+	}
+}
+.admin-container{
+	padding-left: 140px;
+	position: relative;
+}
+.admin-container > .menu{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 120px;
+}
+.admin-container > .main{
+	padding: 10px;
 }

@@ -17,6 +17,10 @@ fxlib.initPageData = function(){
 		}
 		
 	})
+
+    $(".delete").on('click',function(e){
+        alert(1)
+    })
 }
 var fxui = $.fn.fxui || {};
 
