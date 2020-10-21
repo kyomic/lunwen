@@ -4,6 +4,22 @@
 		<link rel="import" href="/admin/common/left_menu.html?__inline">
 	</div>
 	<div class="main">		
+		<div class="dialog" style="display:none">
+			<div class="d-header"></div>
+			<div class="d-content">
+				<form class="form">					
+					<div class="form-item">
+						<label >备注</label>
+						<textarea name="desc"></textarea>
+						
+					</div>
+				</form>
+			</div>
+			<div class="d-footer">
+				<input type="button" class="submit" value="确定" />
+				<input type="button" class="cancel" value="取消" />
+			</div>
+		</div>
 		<div class="table-header">
 			<div class="search">
 				<form class="form form-inline">
@@ -27,19 +43,22 @@
 						序号
 					</td>
 					<td>
-						缩略图
+						昵称
 					</td>
 					<td>
-						书名
+						电话
 					</td>
 					<td>
-						作者
+						邮箱
 					</td>
 					<td>
-						出版社
+						提问
 					</td>
 					<td>
-						入库时间
+						管理回复
+					</td>
+					<td>
+						发布日期
 					</td>
 					<td>
 						操作
@@ -49,32 +68,55 @@
 			<tbody>
 				<tr>
 					<td>
-						序号
+						1
 					</td>
 					<td>
-						缩略图
+						坤坤
 					</td>
 					<td>
-						书名
+						13601xxxxxx
 					</td>
 					<td>
-						作者
+						riacn@qq.com
 					</td>
 					<td>
-						出版社
+						我的书还没有收到，都好几天了。
 					</td>
+					<td>新冠爆发，物流较慢 </td>
 					<td>
 						2020-10-20 15:33:40
 					</td>
 					<td>
-						<button class="delete">删除</button>
-						<button data-title="修改图书" class="modify">修改</button>
-						<button>下架</button>
+						<button style="display:none" data-title="回复用户" class="modify">回复</button>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						2
+					</td>
+					<td>
+						坤坤
+					</td>
+					<td>
+						13601xxxxxx
+					</td>
+					<td>
+						riacn@qq.com
+					</td>
+					<td>
+						今天星形几啊，好无聊啊。
+					</td>
+					<td></td>
+					<td>
+						2020-10-20 15:33:40
+					</td>
+					<td>
+						<button data-title="回复用户" class="modify">回复</button>
 					</td>
 				</tr>
 			</tbody>
 		</table>
-		<link rel="import" href="/web/common/tpl/pager.html?__inline">
+		<link rel="import" href="/web/common/tpl/pager_one.html?__inline">
 		
 	</div>
 </div>

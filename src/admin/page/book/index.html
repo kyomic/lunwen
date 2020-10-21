@@ -1,4 +1,5 @@
 <link rel="import" href="/admin/common/header.html?__inline">
+<link rel="stylesheet" type="text/css" href="./index.less">
 <div class="container admin-container">
 	<div class="menu">
 		<link rel="import" href="/admin/common/left_menu.html?__inline">
@@ -101,33 +102,7 @@
 					</td>
 				</tr>
 			</theader>
-			<tbody>
-				<tr>
-					<td>
-						序号
-					</td>
-					<td>
-						缩略图
-					</td>
-					<td>
-						书名
-					</td>
-					<td>
-						作者
-					</td>
-					<td>
-						出版社
-					</td>
-					<td>
-						2020-10-20 15:33:40
-					</td>
-					<td>
-						<button class="delete">删除</button>
-						<button data-title="修改图书" class="modify">修改</button>
-						<button>下架</button>
-					</td>
-				</tr>
-			</tbody>
+			<link rel="import" href="/web/common/tpl/books_admin.html?__inline">
 		</table>
 		<link rel="import" href="/web/common/tpl/pager.html?__inline">
 		

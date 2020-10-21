@@ -1,11 +1,27 @@
 <div class="left-menu">
 	<ul>
 
-		<li><a href="/web/page/index" target='_blank'>网站首页</a></li>
-		<li><a href="/admin/page/book">图书管理</a></li>
-		<li><a href="/admin/page/order">订单管理</a></li>
-		<li><a href="/admin/page/user">用户管理</a></li>
-		<li><a href="/admin/page/feedback">反馈管理</a></li>
-		<li><a href="/admin/page/login">退出</a></li>
+		<li class="menu-index"><a href="/web/page/index" target='_blank'>网站首页</a></li>
+		<li class="menu-book"><a href="/admin/page/book">图书管理</a></li>		
+		<li class="menu-user"><a href="/admin/page/user">用户管理</a></li>
+		<li class="menu-order"><a href="/admin/page/order">订单管理</a></li>
+		<li class="menu-feedback"><a href="/admin/page/feedback">反馈管理</a></li>
+		<li class="menu-login"><a href="/admin/page/login">退出</a></li>
 	</ul>
 </div>
+<script type="text/javascript">
+$(document).ready(function(){
+	
+	var name = /\/admin\/page\/([^\/]+)/i.exec(location.href)
+	if( name ){
+		name = name[1]
+	}else{
+		name = 'index'
+	}
+	var current = $(".menu-" + name );
+	console.log('current', current)
+	if( current && current.length){
+		current.addClass('current')
+	}
+});
+</script>

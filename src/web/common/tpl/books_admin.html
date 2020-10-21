@@ -1,0 +1,38 @@
+<tbody class="books">
+	<script type="text/html">
+		<% each data as item %>
+		<tr>
+			<td>
+				<% $index+1 %>
+			</td>
+			<td>
+				<img src="/static/img/<% item.pic %>" />
+			</td>
+			<td>
+				《<% item.name %>》
+			</td>
+			<td>
+				<% item.author %>
+			</td>
+			<td>
+				<% item.publisher %>
+			</td>
+			<td>
+				<% item.create_time %>
+			</td>
+			<td>
+				<button class="delete">删除</button>
+				<button data-title="添加图书" class="modify">修改</button>
+				<button>下架</button>
+			</td>
+		</tr>
+		<% /each %>
+	</script>
+</tbody>
+<script type="text/javascript" src='/static/data.js'></script>
+<script>
+	books = books.reverse().slice(0,5);
+	$.fn.fxui.tpl.renderDom($(".books"),{
+		data:books
+	})
+</script>
